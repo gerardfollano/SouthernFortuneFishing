@@ -1,7 +1,7 @@
 {% assign image = section.settings.image %}
 
-<div class="container mb-12 md:mb-24">
-  <div class="w-full md:h-[500px] relative overflow-hidden">
+<div class="container-fluid text-center md:text-left mb-12 md:mb-24 {{css_classes}} border-black border-b-4">
+  <div class="lg:w-full h-screen relative">
     {% if image %}
       <img
         sizes="
@@ -27,16 +27,19 @@
       {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-full' }}
     {% endif %}
 
-    <div class="w-full md:max-w-xl md:absolute bottom-0 right-0 bg-white pt-6 md:p-6 md:mb-8 md:mr-8">
-      <div class="text-2xl lg:text-3xl font-bold mb-2">
+    <div class="container w-full md:max-w-xl absolute top-1/4 md:left-64 pt-0 md:p-6 md:mb-8 md:mr-8">
+      <div class="text-5xl font-black mb-2 text-white font-infinite_stroke text-shadow-md">
         {{ section.settings.headline }}
+        <strong class="md:text-7xl">365</strong> <small>Days</small>,<br/> <strong class="md:text-7xl">30</strong> <small>Species!</small>
       </div>
-
-      <div class="mb-6">
+      <div class="text-3xl text-white text-shadow font-hermona">
+        {{ section.settings.subheading }}
+      </div>
+      <div class="mb-6 text-xl text-white text-shadow">
         {{ section.settings.text }}
       </div>
 
-      <a href="{{ section.settings.button-url }}" class="button button-primary">
+      <a href="{{ section.settings.button-url }}" class="button button-primary text-3xl border-green font-hermona">
         {{ section.settings.button-text }}
       </a>
     </div>
@@ -49,6 +52,12 @@
   "class": "shopify-section-vue",
   "settings": [
     {
+      "type": "text",
+      "id": "classes",
+      "label": "Classes",
+      "default": "Seperate classes by space"
+    },
+    {
       "type": "image_picker",
       "id": "image",
       "label": "t:common.image"
@@ -58,6 +67,12 @@
       "id": "headline",
       "label": "t:common.headline",
       "default": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:common.headline",
+      "default": "Subheading"
     },
     {
       "type": "textarea",

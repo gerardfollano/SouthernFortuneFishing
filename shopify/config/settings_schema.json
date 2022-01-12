@@ -1,9 +1,9 @@
 [
   {
-    "name": "theme_info",
-    "theme_name": "Shopify Theme Lab",
+    "name": "Southern Fortue Fishing",
+    "theme_name": "Southern Fortue Fishing",
     "theme_version": "1.0.0",
-    "theme_author": "THEME_AUTHOR",
+    "theme_author": "Gerard Anthony Follano",
     "theme_documentation_url": "https://THEME_DOCUMENTATION_URL.com",
     "theme_support_url": "https://THEME_SUPPORT_URL.com"
   },
@@ -17,6 +17,83 @@
       {
         "type": "paragraph",
         "content": "t:settings_schema.custom_settings.settings.paragraph"
+      },
+      {
+        "name": "Social media",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Social sharing options"
+          },
+          {
+            "type": "checkbox",
+            "id": "social_sharing_blog",
+            "label": "Enable sharing for blog articles",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "share_facebook",
+            "label": "Share on Facebook",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "share_twitter",
+            "label": "Tweet on Twitter",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "share_pinterest",
+            "label": "Pin on Pinterest",
+            "default": true
+          },
+          {
+            "type": "header",
+            "content": "Sharing links"
+          },
+          {
+            "type": "text",
+            "id": "social_twitter_link",
+            "label": "Twitter link"
+          },
+          {
+            "type": "text",
+            "id": "social_facebook_link",
+            "label": "Facebook link"
+          },
+          {
+            "type": "text",
+            "id": "social_pinterest_link",
+            "label": "Pinterest link"
+          },
+          {
+            "type": "text",
+            "id": "social_instagram_link",
+            "label": "Instagram link"
+          },
+          {
+            "type": "text",
+            "id": "social_snapchat_link",
+            "label": "Snapchat link"
+          },
+          {
+            "type": "text",
+            "id": "social_tumblr_link",
+            "label": "Tumblr link"
+          },
+          {
+            "type": "text",
+            "id": "social_youtube_link",
+            "label": "Youtube link"
+          },
+          {
+            "type": "text",
+            "id": "social_vimeo_link",
+            "label": "Vimeo link"
+          }
+        ]
       }
     ]
   }

@@ -65,6 +65,14 @@
       "name": "Hero",
       "settings": {}
     },
+    "featured-product": {
+      "name": "Featured Product",
+      "settings": {}
+    },
+    "brands-row": {
+      "name": "Featured Brands",
+      "settings": {}
+    },
     "image-row": {
       "name": "Image row",
       "settings": {}

@@ -1,28 +1,55 @@
-<div class="bg-white border-b border-gray-200">
-  <div class="container">
-    <div class="h-20 md:h-32 flex justify-center md:justify-between items-center">
+<div 
+  :class="scrollPosition > 100 ? 'max-w-full mt-0' : 'md:mt-10'" 
+  class="duration-500 container drop-shadow-lg text-white border-b border-black bg-black z-50 pl-10 pr-10 {{css_classes}}"
+
+>
+    <div class="h-16 flex md:justify-between items-center">
+      <div class="md:flex-1 md:mr-auto font-hermona">
+        {% render 'layout-menu', class: 'space-x-8 hidden md:block' %}
+        <div class="md:hidden">
+          <button @click="$store.dispatch('mobile-menu/toggle')">
+            <div v-if="$store.state['mobile-menu'].visible" >{% render 'icon-cancel' %}</div> 
+            <div v-else>{% render 'icon-menu' %}</div>
+            
+          </button>
+        </div>
+      </div>
+      <div class="md:flex grow md:grow-0	items-center text-center" >
       <a
         href="{{ routes.root_url }}"
-        class="inline-block text-2xl lg:text-3xl font-bold"
+        class="inline-block text-2xl lg:text-3xl font-bold z-50 ease-in-out duration-500"
+        :class="scrollPosition > 100 ? 'md:mt-10' : ''"
       >
-        {{ shop.name }}
+        {% if section.settings.logo_url %}
+          <img  
+            class="logo h-auto pl-3 pr-3 md:h-36 md:h-auto "
+            src="{{ section.settings.logo_url | img_url: 'large' }}" 
+            alt="{{ section.settings.logo_url.alt | escape }}"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+            data-aspectratio="{{ article.image.aspect_ratio }}"
+            data-sizes="auto" 
+          />
+          <h1 class="logo-text invisible">{{shop.name}}</h1>
+        {% else %}
+          <h1 class="logo-text visible">{{shop.name}}</h1>
+        {% endif %}  
+        
       </a>
+    </div>
+      {% assign link_class = 'flex flex-col justify-center items-center text-sm text-gray-600 hover:text-white font-medium transition duration-150 p-2' %}
+      {% assign icon_class = 'w-auto h-7 text-white mb-2' %}
+      {% assign element_class = 'w-auto' %}
 
-      <div class="hidden md:block">
-        {% render 'layout-menu', class: 'space-x-4' %}
-      </div>
-
-      {% assign link_class = 'flex flex-col justify-center items-center text-sm text-gray-600 hover:text-black font-medium transition duration-150 p-2' %}
-      {% assign icon_class = 'w-auto h-7 text-black mb-2' %}
-
-      <div class="hidden md:flex space-x-2 lg:space-x-6">
-        <a
+      <div class="hidden md:flex space-x-2 lg:space-x-6 flex-1 ml-auto justify-end" >
+        {% comment %} <a
           href="{{ routes.search_url }}"
           class="{{ link_class }}"
         >
+
           {% render 'icon-search', class: icon_class %}
           {{ 'action.search' | t }}
-        </a>
+        </a> {% endcomment %}
 
         {% if shop.customer_accounts_enabled %}
           <a
@@ -34,7 +61,7 @@
           </a>
         {% endif %}
 
-        <a
+        {% comment %} <a
           href="{{ routes.cart_url }}"
           class="{{ link_class }} relative"
         >
@@ -46,19 +73,32 @@
               {{ cart.item_count }}
             </div>
           {% endif %}
-        </a>
+        </a> {% endcomment %}
+
+        <a class="button border-green font-hermona text-lg">Join Tournament - $295/Yr.</a>
       </div>
     </div>
   </div>
-</div>
 
 {% schema %}
 {
   "name": "t:sections.header.name",
+  "class": "header fixed z-50 w-full",
   "settings": [
+    {
+      "type": "text",
+      "id": "classes",
+      "label": "Classes",
+      "default": "Seperate classes by space"
+    },
     {
       "type": "paragraph",
       "content": "t:sections.header.settings.paragraph"
+    },
+    {
+      "id": "logo_url",
+      "type": "image_picker",
+      "label": "Logo"
     }
   ]
 }

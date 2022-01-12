@@ -11,3 +11,32 @@
 @import "_transitions";
 
 @import "tailwindcss/utilities";
+
+@font-face {
+    font-family: 'hermonaregular';
+    src: url('../fonts/hermona-webfont.woff2') format('woff2'),
+         url('../fonts/hermona-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'infinite_strokeregular';
+    src: url('../fonts/infinite_stroke-webfont.woff2') format('woff2'),
+         url('../fonts/infinite_stroke-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.header .container {
+    border-top: 2px solid #2fb3b4;
+}
+
+.logo {
+    padding-top: 4.25rem;
+}
+
+.logo img {
+    width: 30rem;
+}

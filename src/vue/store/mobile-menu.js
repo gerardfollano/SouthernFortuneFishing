@@ -8,7 +8,11 @@ const state = {
 /**
  * getters
  */
-const getters = {}
+const getters = {
+  getMenuState() {
+      return 'test'; 
+  }
+}
 
 /**
  * mutations
